@@ -10,18 +10,20 @@ int main()
         char name[50];
         int id;
     };
-    struct Taxi
-    {
-        /* data */
+    struct LinkedTaxi{
         int id;
         Driver *drv;
+        LinkedTaxi *next;
     };
-    // Driver d1;
-    Taxi t1;   
+    LinkedTaxi t1, t2;   
     Driver d1={"Shekhar",23};
+    Driver d2={"Aman",24};
     t1.id=12;
-    // structure pointer as member of a structure
-    t1.drv=&d1;    
-    cout<< "driver id" << t1.drv->id<<endl;
+    t1.drv=&d1;
+    t1.next= NULL;
+    t2.id=11;
+    t2.drv=&d2;
+    t2.next= &t1;
+    cout << (t2.next)->drv->name<<endl;
     return 0;
 }
