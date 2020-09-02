@@ -1,4 +1,4 @@
-.PHONY: oops_6.o oops_6 oops_7.o oops_7 moc moc_1.o defcpyc defcpyc.o
+.PHONY: oops_6.o oops_6 oops_7.o oops_7 moc moc_1.o defcpyc defcpyc.o inheri inheri.o
 All:
 	g++ -o main main.cc
 structexam:
@@ -116,10 +116,19 @@ defcpyc : defcpyc.o
 	g++ -o defcpyc defcpyc.o
 	#g++ -o defcpyc_2 defcpyc_2.o
 	g++ -o opoverload opoverload.o
+	g++ -o friends friends_stat_mem.o
+	g++ -o friends2 friends_stat_mem2.o
 defcpyc.o:
 	g++ -c defcpyc.cc
 	#g++ -c defcpyc_2.cc
 	g++ -c opoverload.cc
+	g++ -c friends_stat_mem.cc
+	g++ -c friends_stat_mem2.cc
+
+inher : inher.o
+	g++ -o inher inher.o
+inher.o:
+	g++ -c inheri.cc
 
 clean:
-	rm -rf *o *exe structexam main book strcpoint structexam tqs tqs_adv filehandle creatbin readdb oops_1 oops_2 oops_3 oops_4 oops_5 oops_6 moc_1 moc_2 moc_3 moc_4 moc_5 defcpyc defcpyc_2
+	rm -rf *o *exe structexam main book strcpoint structexam tqs tqs_adv filehandle creatbin readdb oops_1 oops_2 oops_3 oops_4 oops_5 oops_6 moc_1 moc_2 moc_3 moc_4 moc_5 defcpyc defcpyc_2 friends friends2 inheri
